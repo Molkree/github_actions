@@ -1,6 +1,7 @@
 name: aiohttp-speedups
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
