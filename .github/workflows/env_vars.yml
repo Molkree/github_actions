@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SHA: ${{ github.sha }}
+      SHA: ${{ github.sha[0] }}
 
     steps:
       - run: echo $SHA
