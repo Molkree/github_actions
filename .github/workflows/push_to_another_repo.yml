@@ -1,0 +1,19 @@
+name: Push to another repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'Molkree/LeetCode'
+          token: ${{ secrets.ACTIONS_PAT }}
+      - name: Commit something
+        run: |
+          cd $GITHUB_WORKSPACE/LeetCode
+          git commit --allow-empty -m "Dummy commit"
+          git push
