@@ -4,17 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  send_repository_dispatch:
-    runs-on: ubuntu-latest
-
+  check_pip:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.7', '3.8', '3.9', '3.10']
     steps:
-      - name: Send repository_dispatch
-        env:
-          PAT: ${{ secrets.ACTIONS_PAT }}
-        run: |
-          curl \
-            -X POST \
-            -H "Authorization: token $PAT" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/molkree/github_actions/dispatches \
-            -d '{"event_type":"base_built"}'
+      - uses: actions/setup-python@v2
