@@ -2,6 +2,9 @@ name: Testing miniconda
 
 on:
   workflow_dispatch:
+  schedule:
+    # Runs every 7 minutes
+    - cron: '*/7 * * * *'
 
 jobs:
   testing_miniconda:
