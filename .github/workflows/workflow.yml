@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  # Triggers the workflow on tag events
+  push:
+    tags: '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 250
+          fetch-tags: true
