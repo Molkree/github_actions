@@ -1,0 +1,13 @@
+name: Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print_json_var:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print JSON secret
+        run: |
+          echo ${{ fromJSON(secrets.JSON_SECRET) }}
