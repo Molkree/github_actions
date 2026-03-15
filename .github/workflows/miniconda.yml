@@ -21,6 +21,7 @@ jobs:
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}
       - uses: conda-incubator/setup-miniconda@835234971496cad1653abb28a638a281cf32541f # v3.2.0
         with:
+          python-version: "3.13"
           auto-update-conda: true
           activate-environment: pdftotext
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
